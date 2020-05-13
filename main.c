@@ -88,9 +88,10 @@ void input_handler(int input, Record records[]){
   else if(input==10){
     Record recordcopy[MAX_RECORDS];
     sort(records,&count);
-    
-
   }
+	else if(input == 11){
+		searchBacknum(records, &count);
+	}
     
 
 	else if(input==99)
@@ -122,5 +123,6 @@ void display_menu(){
   printf(" 8. Update\n");
   printf(" 9. Defragment\n");
   printf(" 10. Sort\n");
+	printf(" 11. Search(backnum)\n");
 	printf(" 99. Quit\n");
 }

@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
 #include "extras.h"
 
 void swap(Record *a, Record *b){
@@ -50,7 +49,6 @@ void sort(Record records[],int *count){
   printf("What are you going to sort by?\n");
   printf("1.position\n");
   printf("2.totalpay\n");
-  printf("3.backnum\n");
   printf("Put a number:");
   scanf("%d",&num);
   if(num==2){
@@ -71,15 +69,26 @@ void sort(Record records[],int *count){
       }
     }
   }
-  else if(num == 3){
-	for(int i=0; i<*count-1; i++){
-		for(j =0; j<*count-1;j++){
-			int num1 = atoi(records[j].back_num);
-			int num2 = atoi(records[j+1].back_num);
-			if(num1 > num2)
-				swap(&records[j],&records[j+1]);
+
+}
+
+void searchBacknum(Record records[], int* count){
+	char str[10];
+	int check = 0;
+	printf("What back number of player you want to search for?\n");
+	printf("Input the number: ");
+	scanf("%s",str);
+	for(int i=0; i<*count; i++){
+		if(!strcmp(records[i].back_num, str)){
+			printf("----------------------------\n");
+			printf("name: %s\n",records[i].name);
+			printf("worktime: %d hours\n",records[i].pay);
+			printf("hourly wage: %d\n",records[i].pay);
+        	printf("total wage: %d\n",records[i].totalPay);
+        	printf("position: %s\n",records[i].position);
+			check++;
 		}
 	}
-  }
-
+	printf("----------------------------\n");
+	printf("There are %d results.\n", check);
 }

@@ -8,6 +8,6 @@ int defragment(Record[],int* count);
 void display_stats(Record[]);
 void sort(Record[],int* count);
 void swap(Record* a,Record* b);
-
+void searchBacknum(Record[], int*);
 
 #endif
