@@ -92,3 +92,25 @@ void searchBacknum(Record records[], int* count){
 	printf("----------------------------\n");
 	printf("There are %d results.\n", check);
 }
+
+void searchTotalPay(Record records[], int* count){
+	int input;
+	int check = 0;
+	printf("Input pay number you want to see whose total pay is higher: ");
+	scanf("%d",&input);
+	
+	for(int i=0; i<*count; i++){
+		if(records[i].totalPay > input){
+			printf("----------------------------\n");
+			printf("total wage: %d\n",records[i].totalPay);
+			printf("name: %s\n",records[i].name);
+			printf("worktime: %d hours\n",records[i].pay);
+            printf("hourly wage: %d\n",records[i].pay);
+			printf("position: %s\n",records[i].position);
+			check++;
+		}		
+	}
+	printf("----------------------------\n");
+    printf("There are %d results.\n", check);
+}
+
